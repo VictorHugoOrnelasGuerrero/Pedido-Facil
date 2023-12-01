@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comida Rápida</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+    <div id="header">
+        <div>
+            <a href="index.html">
+                <img src="./img/Pedido Fácil.png" width="50px" height="50px">
+            </a>
+        </div>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar productos">
+        </div>
+        <div class="header-buttons">
+            <button class="header-button" onclick="location.href='ingresar_como.html'"><i class="fas fa-user"></i></button>
+            <button class="header-button" onclick="location.href='carrito.html'"><i class="fas fa-shopping-cart"></i></button>
+            <button class="header-button" onclick="location.href='gestionar-perf.html'"><i class="fas fa-user-circle"></i></button>
+            <button class="header-button" onclick="location.href='restaurantes.html'"><i class="fas fa-utensils"></i></button>
+        </div>
+    </div>
+    <h1>Restaurantes de Comida Rápida</h1>
+
+    <div class="restaurant" onclick="mostrarMenu('restaurante1')">
+        <img src="fastfood.jpg" alt="Restaurante 1">
+        <h2>Restaurante 1</h2>
+    </div>
+    
+    <div class="restaurant" onclick="mostrarMenu('restaurante2')">
+        <img src="fastfood.jpg" alt="Restaurante 2">
+        <h2>Restaurante 2</h2>
+    </div>
+
+    <!-- Agrega más restaurantes de comida rápida según sea necesario -->
+
+    <div class="menu" id="restaurante1">
+        <h2>Restaurante 1</h2>
+        <img src="menu1.jpg" alt="Menú del Restaurante 1">
+        <p>Ingredientes: Ingredientes del menú del Restaurante 1.</p>
+        <p>Precio: $10.99</p>
+        <button class="menu-button add-to-cart-button" onclick="addToCart('Restaurante 1')">Añadir al Carrito</button>
+    </div>
+
+    <div class="menu" id="restaurante2">
+        <h2>Restaurante 2</h2>
+        <img src="menu2.jpg" alt="Menú del Restaurante 2">
+        <p>Ingredientes: Ingredientes del menú del Restaurante 2.</p>
+        <p>Precio: $9.99</p>
+        <button class="menu-button add-to-cart-button" onclick="addToCart('Restaurante 2')">Añadir al Carrito</button>
+    </div>
+
+    <!-- Agrega más menús de restaurantes según sea necesario -->
+
+    <script>
+        function mostrarMenu(id) {
+            var menus = document.getElementsByClassName('menu');
+            for (var i = 0; i < menus.length; i++) {
+                menus[i].style.display = 'none';
+            }
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function addToCart(restaurantName) {
+            // Aquí agregar el código para guardar en un carrito los ingredientes y precios de la comida que se está
+            // Aquí se agregaría el producto al carrito, por ejemplo en una base de datos o un archivo local
+        
+            alert('Añadido al carrito: ' + restaurantName);
+        }
+    </script>
+</body>
+</html>

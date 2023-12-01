@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Productos - Tienda en línea</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #header {
+            background-color: #663399; /* Morado claro */
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        #logo {
+            color: #fff;
+            font-size: 24px;
+            margin-left: 20px;
+        }
+        #search-bar {
+            text-align: center;
+        }
+        #search-input {
+            background-color: #333; /* Gris oscuro */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+        }
+        .header-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .header-button {
+            background-color: #663399; /* Morado claro */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            margin-left: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+        }
+        .header-button:hover {
+            background-color: #551a8b; /* Morado más oscuro al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="logo">Tu Tienda</div>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar productos">
+        </div>
+        <div class="header-buttons">
+            <button class="header-button" onclick="location.href='ingresar_como.html'"><i class="fas fa-user"></i></button>
+            <button class="header-button" onclick="location.href='carrito.html'"><i class="fas fa-shopping-cart"></i></button>
+            <button class="header-button" onclick="location.href='gestionar-perf.html'"><i class="fas fa-user-circle"></i></button>
+            <button class="header-button" onclick="location.href='restaurantes.html'"><i class="fas fa-utensils"></i></button>
+        </div>
+    </div>
+
+    <main>
+        <section class="producto">
+            <img src="producto1.jpg" alt="Producto 1">
+            <h2>Producto 1</h2>
+            <p>Descripción del producto 1.</p>
+            <p>Precio: $99.99</p>
+            <button onclick="agregarAlCarrito('Producto 1', 99.99)">Añadir al carrito</button>
+        </section>
+
+        <section class="producto">
+            <img src="producto2.jpg" alt="Producto 2">
+            <h2>Producto 2</h2>
+            <p>Descripción del producto 2.</p>
+            <p>Precio: $149.99</p>
+            <button onclick="agregarAlCarrito('Producto 2', 149.99)">Añadir al carrito</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Tienda en línea. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+// Función para agregar un producto al carrito
+function agregarAlCarrito(nombre, precio) {
+        // Crear un objeto que representa el producto
+        const producto = {
+            nombre: nombre,
+            precio: precio,
+        };
+
+        // Verificar si el carrito ya existe en el almacenamiento local
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        // Agregar el producto al carrito
+        carrito.push(producto);
+
+        // Actualizar el carrito en el almacenamiento local
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+        // Opcional: Mostrar una notificación o mensaje al usuario
+        alert(`${nombre} se ha añadido al carrito.`);
+    }
+    </script>
+</body>
+</html>

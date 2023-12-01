@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #d3d3d3;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: rgb(214, 3, 3);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #fc0101;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Editar Producto</h1>
+
+    <div class="container">
+        <form>
+            <label for="productName">Nombre del Producto:</label>
+            <input type="text" id="productName" name="productName" placeholder="Nombre del Producto" required>
+
+            <label for="productPrice">Precio:</label>
+            <input type="number" id="productPrice" name="productPrice" placeholder="Precio" required>
+
+            <label for="archivo">Subir Archivo:</label>
+            <input type="file" id="archivo" name="archivo">
+
+            <label for="productDescription">Descripción:</label>
+            <textarea id="productDescription" name="productDescription" placeholder="Descripción"></textarea>
+
+            <div style="margin-top: 20px;"> <!-- Agregado para separar los botones -->
+                <!-- Comentario sobre el botón de "Guardar Cambios" -->
+                <button class="btn btn-primary">Guardar Cambios</button>
+
+                <!-- Comentario sobre el botón "Cancelar" -->
+                <button class="btn btn-secondary" onclick="cancelarEdicion()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function cancelarEdicion() {
+            // Puedes redirigir a la página de productos o realizar otras acciones al cancelar la edición
+            window.location.href = "productos.html";
+        }
+    </script>
+</body>
+
+</html>

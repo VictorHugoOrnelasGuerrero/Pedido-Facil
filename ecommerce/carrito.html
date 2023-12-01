@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de Compra - Tienda en línea</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+  <div id="header">
+    <div>
+            <a href="index.html">
+                <img src="./img/Pedido Fácil.png" width="50px" height="50px">
+            </a>
+    </div>
+    <div id="search-bar">
+        <input type="text" id="search-input" placeholder="Buscar productos">
+    </div>
+    <div class="header-buttons">
+        <button class="header-button" onclick="location.href='ingresar_como.html'"><i class="fas fa-user"></i></button>
+        <button class="header-button" onclick="location.href='carrito.html'"><i class="fas fa-shopping-cart"></i></button>
+        <button class="header-button" onclick="location.href='gestionar-perf.html'"><i class="fas fa-user-circle"></i></button>
+        <button class="header-button" onclick="location.href='restaurantes.html'"><i class="fas fa-utensils"></i></button>
+    </div>
+</div>
+
+    <main>
+        <h2>Carrito de Compra</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se listarán los productos en el carrito -->
+            </tbody>
+        </table>
+        <p>Total: $<span id="total">0.00</span></p>
+        <button onclick="realizarPedido()">Realizar Pedido</button>
+    </main>
+
+    <script>
+         // Función para mostrar los productos en el carrito
+    function mostrarCarrito() {
+        // Obtener el carrito del almacenamiento local
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        // Obtener el elemento de la tabla donde se mostrarán los productos
+        const tablaCarrito = document.querySelector('tbody');
+
+        // Inicializar la variable para el total
+        let total = 0;
+
+        // Limpiar la tabla antes de agregar los productos
+        tablaCarrito.innerHTML = '';
+
+        // Recorrer el carrito y agregar cada producto a la tabla
+        carrito.forEach(producto => {
+            const fila = tablaCarrito.insertRow();
+            const celdaNombre = fila.insertCell(0);
+            const celdaPrecio = fila.insertCell(1);
+
+            celdaNombre.textContent = producto.nombre;
+            celdaPrecio.textContent = `$${producto.precio.toFixed(2)}`;
+
+            total += producto.precio;
+        });
+
+        // Mostrar el total
+        const totalElement = document.getElementById('total');
+        totalElement.textContent = `$${total.toFixed(2)}`;
+    }
+
+    // Llama a la función para mostrar el carrito cuando se cargue la página
+    mostrarCarrito();
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurantes Disponibles - Tienda en línea</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="header">
+        <div>
+            <a href="index.html">
+                <img src="./img/Pedido Facil.png" width="50px" height="50px" alt="Logo Pedido Fácil">
+            </a>
+        </div>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar productos">
+        </div>
+        <div class="header-buttons">
+            <button class="header-button" onclick="location.href='ingresar_como.html'"><i class="bi bi-person"></i></button>
+            <button class="header-button" onclick="location.href='carrito.html'"><i class="bi bi-cart-fill"></i></button>
+            <button class="header-button" onclick="location.href='gestionar-perf.html'"><i class="bi bi-person-circle"></i></button>
+            <button class="header-button" onclick="location.href='restaurantes.html'"><i class="fas fa-utensils"></i></button>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <h1>Restaurantes Disponibles</h1>
+            <p>Explora una amplia selección de restaurantes y elige tus opciones de comida favoritas.</p>
+
+            <section class="restaurante">
+                <h3>Restaurante 1</h3>
+                <p>Descripción del restaurante 1.</p>
+                <img src="restaurante1.jpg" alt="Restaurante 1">
+                <a href="menu_restaurante1.html">Ver Menú</a>
+            </section>
+
+            <section class="restaurante">
+                <h3>Restaurante 2</h3>
+                <p>Descripción del restaurante 2.</p>
+                <img src="restaurante2.jpg" alt="Restaurante 2">
+                <a href="menu_restaurante2.html">Ver Menú</a>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
